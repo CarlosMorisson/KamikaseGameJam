@@ -17,6 +17,7 @@ public class Enemy : MoveOnAxis
     public float Life;
     void Start()
     {
+        Destroy(gameObject, 50f);
         Life = stats.Life;
         if(transform.position.y + 1>border)
             transform.DOMoveY(border, 1f, false).SetLoops(-1, LoopType.Yoyo);

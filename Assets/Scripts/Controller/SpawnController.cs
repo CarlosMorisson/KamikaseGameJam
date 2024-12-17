@@ -38,14 +38,14 @@ public class SpawnController : MonoBehaviour
         {
             int RandomObject = Random.Range(0, SpawnList.Length-1);
             int RandomPosition = Random.Range(0, spawnPosition.Length-1);
-            if(SpawnType.Enemy==spawnType)
-                Instantiate(SpawnList[RandomObject], spawnPosition[EnemyLocalIndex].position, Quaternion.identity);
-            else
+            int RandomYposition = Random.Range(-6, 6);
+            GameObject game = Instantiate(SpawnList[RandomObject], spawnPosition[RandomPosition].localPosition, Quaternion.identity);
+            if (SpawnType.Asteroids == spawnType)
             {
-                GameObject game =Instantiate(SpawnList[RandomObject], spawnPosition[RandomPosition].position, Quaternion.identity);
                 float RandomScale = Random.Range(1, 3);
                 game.transform.localScale = new Vector3(RandomScale, RandomScale, RandomScale);
             }
+            //game.transform.position = new Vector3(game.transform.position.x, game.transform.position.y- RandomYposition, game.transform.position.z);
                  // Spawna na posição 1=
         }
         else
